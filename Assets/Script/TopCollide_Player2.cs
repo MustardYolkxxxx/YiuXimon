@@ -12,9 +12,13 @@ public class TopCollide_Player2 : MonoBehaviour
     public float force;
     public float forceDownSpeed;
 
+    public float targetRotateSpeed;
+    public float controlForce;
+
     public float collideTime;
     public bool isCollide;
 
+    public TopMove_Player2 moveScr;
     public enum CollideState2
     {
         none,
@@ -47,10 +51,12 @@ public class TopCollide_Player2 : MonoBehaviour
         float time = 0;
         while (time < collideTime)
         {
-            parentTrans.position = Vector3.Lerp(parentTrans.position, -forceDirect.normalized * force, Time.deltaTime * force);
+            parentTrans.position = Vector3.Lerp(parentTrans.position, -forceDirect.normalized *(targetRotateSpeed / controlForce), Time.deltaTime * force);
             yield return null;
             time += Time.deltaTime;
         }
+        moveScr.currentMoveSpeed = 0;
+        moveScr.currentMoveSpeedHorizontal = 0;
         currentCollideState = CollideState2.none;
     }
 
@@ -69,6 +75,7 @@ public class TopCollide_Player2 : MonoBehaviour
         {
             
             forceDirect = collision.transform.position - parentTrans.position;
+            targetRotateSpeed = collision.gameObject.GetComponent<TopRotate_Player1>().rotateSpeed;
             currentCollideState = CollideState2.collide;
         }
     }
