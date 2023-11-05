@@ -108,6 +108,7 @@ public class UI_BladeChoose2 : MonoBehaviour
                 gameManagerScr.ChangeSpeedDownRate(2, bladeIndex);
                 gameManagerScr.ChangeMaxSpeed(2, bladeIndex);
                 gameManagerScr.ChangeSpeedUpRate(2, bladeIndex);
+                PublicValue.bladeIndex2 = bladeIndex;
                 currentChooseState = ChooseState.finish;
             }
             else if (currentChooseState == ChooseState.finish)

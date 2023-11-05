@@ -46,8 +46,8 @@ public class GameManager : MonoBehaviour
     public float bladeSpeedDownRate1;
     public float bladeSpeedDownRate2;
 
-    public float player1Score;
-    public float player2Score;
+    public int player1Score;
+    public int player2Score;
     // Start is called before the first frame update
     void Start()
     {
@@ -57,7 +57,8 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        PublicValue.bladeIndex2 = player2Score;
+        PublicValue.bladeIndex1 = player1Score;
     }
 
     public void CreatePlayer1()

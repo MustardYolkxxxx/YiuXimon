@@ -21,5 +21,7 @@ public class UI_PlayerScore : MonoBehaviour
     {
         playerScore1.text = GameManagerScr.player1Score.ToString();
         playerScore2.text = GameManagerScr.player2Score.ToString();
+
+       
     }
 }

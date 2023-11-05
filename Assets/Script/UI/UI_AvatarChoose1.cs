@@ -124,6 +124,7 @@ public class UI_AvatarChoose1 : MonoBehaviour
                 uiManagerScr.currentUIState1 = UI_UIManager.UIState.chooseBlade;
                 readyButtonAni.SetTrigger("press");
                 gameManagerScr.ChangeAvatar(1, avatarIndex);
+                PublicValue.avatarIndex1= avatarIndex;
                 currentChooseState = ChooseState.finish;
             }
             else if (currentChooseState == ChooseState.finish)
