@@ -65,7 +65,9 @@ public class TopRotate_Player1 : MonoBehaviour
         maxRotateSpeedDown = gameManagerScr.bladeSpeedDownRate1;
         rotateSpeedDown = originRotateSpeedDown + maxRotateSpeedDown;
 
+        maxSpeedUpRate = gameManagerScr.blade1SpeedUpRate;
         speedUpRate = originSpeedUpRate + maxSpeedUpRate;
+
         trans.rotation*= Quaternion.Euler(0,0, rotateSpeed);
         rotateSpeed -= rotateSpeedDown*Time.deltaTime;
 

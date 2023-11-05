@@ -76,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: f480430232f836d468461283372199cd, type: 3}
   m_Color: {r: 1, g: 0.35686278, b: 0.41718635, a: 1}
   m_FlipX: 0
@@ -134,9 +134,12 @@ MonoBehaviour:
   forceDownSpeed: 1
   targetRotateSpeed: 0
   controlForce: 1
+  maxControlForce: 0
+  originControlForce: 1
   collideTime: 0.7
   isCollide: 0
   moveScr: {fileID: 15529769840436057}
+  gameManagerScr: {fileID: 0}
   currentCollideState: 0
 --- !u!114 &15529769331911903
 MonoBehaviour:
@@ -152,6 +155,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotateSpeed: 1
   rotateSpeedDown: 0.7
+  maxRotateSpeedDown: 0
+  originRotateSpeedDown: 1
   trans: {fileID: 0}
   originMaxRotateSpeed: 5
   maxRotateSpeed: 0
@@ -176,6 +181,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 74cd95b8aa0e1c24985837fdacf471f4, type: 3}
   - {fileID: 21300000, guid: 614bb5cff1df85e459d9dcc0ab5b4b7c, type: 3}
   - {fileID: 21300000, guid: ea0c32408b5a23845b89a0b5bb396578, type: 3}
+  movePlayerScr: {fileID: 15529769840436057}
   speedUpRate: 1
   maxSpeedUpRate: 0
   originSpeedUpRate: 1
@@ -334,7 +340,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 2415b044ac2f5b64395d021d8f8ac660, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
