@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameEndScene : MonoBehaviour
 {   public bool player1Win = false;
-    public bool Draw = true;
+    public bool Draw = false;
     public GameObject EndPic;
     public Transform player1WinPosition;
     public Transform player2WinPosition;
@@ -22,6 +22,9 @@ public class GameEndScene : MonoBehaviour
     public GameObject DrawButton;
     public bool loadNextSceneED = false;
     public string sceneNameToLoad;
+
+    public Player1ScoreNumber Player1Score;
+    public Player2ScoreNumber Player2Score;
 
 
 
@@ -75,14 +78,30 @@ StartCoroutine(MoveObject());
         }
     }
 
-    private void Update()
+    void Update()
     {
-        if (loadNextSceneED) 
+        int P1score = Player1Score.Player1Score;
+        int P2score = Player2Score.Player2Score;
+        if (P1score > P2score) 
+        {
+            player1Win = true;
+        }
+        if(P2score > P1score)
+        {
+            player1Win = false;
+        }
+        if (P1score == P2score)
+        {
+            Draw = true;
+        }
+
+            if (loadNextSceneED) 
         {
             if (Input.GetKeyDown(KeyCode.Space)|| Input.GetKeyDown(KeyCode.Return))
             {
                 SceneManager.LoadScene(sceneNameToLoad);
             }
         }
+
     }
 }
