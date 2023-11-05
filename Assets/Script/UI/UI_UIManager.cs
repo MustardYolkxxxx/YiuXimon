@@ -7,9 +7,14 @@ public class UI_UIManager : MonoBehaviour
     public GameObject avatarChooseUI;
     public GameObject bladeChooseUI;
     public GameObject weightChooseUI;
+    public GameObject fightReadyUI;
+    public GameObject tutorialUI;
+    public GameObject startLogoUI;
+    public GameObject gamingInfoUI;
 
     public GameObject player1;
     public GameObject player2;
+    
 
     public GameManager gameManagerScr;
 
@@ -22,6 +27,13 @@ public class UI_UIManager : MonoBehaviour
     public UI_WeightChoose1 weightChooseUI1;
     public UI_WeightChoose2 weightChooseUI2;
 
+    public UI_FightReady fightReadyUI1;
+    public UI_FightReady figntReadyUI2;
+
+    public UI_StartTime startTimeScr;
+
+    public int count;
+    
     public enum UIState
     {
         none,
@@ -29,6 +41,7 @@ public class UI_UIManager : MonoBehaviour
         chooseBlade,     
         chooseWeight,
         readyPhase,
+        tutorial,
         startLogo,
         gaming,
         gameover,
@@ -49,25 +62,29 @@ public class UI_UIManager : MonoBehaviour
         avatarChooseUI.SetActive(finalUIState == UIState.chooseAvatar);
         bladeChooseUI.SetActive(finalUIState == UIState.chooseBlade);
         weightChooseUI.SetActive(finalUIState == UIState.chooseWeight);
+        fightReadyUI.SetActive(finalUIState == UIState.readyPhase);
+        tutorialUI.SetActive(finalUIState == UIState.tutorial);
+        startLogoUI.SetActive(finalUIState == UIState.startLogo);
+        gamingInfoUI.SetActive(finalUIState == UIState.gaming);
 
         //if (player1 != null && player2 != null)
         //{
         //    player1.SetActive(finalUIState == UIState.gaming);
         //    player2.SetActive(finalUIState == UIState.gaming);
         //}
-        if (finalUIState == UIState.startLogo)
-        {
-            StartCoroutine(StartGame());
-        }
+        //if (finalUIState == UIState.startLogo)
+        //{
+        //    StartCoroutine(StartGame());
+        //}
 
 
             //weightChooseUI.SetActive(finalUIState == UIState.chooseWeight);
             ChangeCurrentState();
     }
-    
+
     void ChangeCurrentState()
     {
-        if(currentUIState1== UIState.chooseBlade&& currentUIState2 == UIState.chooseBlade)
+        if (currentUIState1 == UIState.chooseBlade && currentUIState2 == UIState.chooseBlade)
         {
             avatarChooseUI1.currentChooseState = UI_AvatarChoose1.ChooseState.stop;
             avatarChooseUI2.currentChooseState = UI_AvatarChoose2.ChooseState.stop;
@@ -85,8 +102,21 @@ public class UI_UIManager : MonoBehaviour
             weightChooseUI2.currentChooseState = UI_WeightChoose2.ChooseState.stop;
             StartCoroutine(ChangeState());
         }
+        if (currentUIState1 == UIState.tutorial && currentUIState2 == UIState.tutorial)
+        {
+            fightReadyUI1.currentChooseState1 = UI_FightReady.ChooseState.stop;
+            figntReadyUI2.currentChooseState2 = UI_FightReady.ChooseState.stop;
+            StartCoroutine(ChangeState());
+        }
 
+        if (finalUIState == UIState.startLogo && count == 0)
+        {
+            startTimeScr.StartIECountDown();
+            count++;
+        }
     }
+
+
     IEnumerator StartGame()
     {
         finalUIState = UIState.gaming;
@@ -97,13 +127,21 @@ public class UI_UIManager : MonoBehaviour
     }
     IEnumerator ChangeState()
     {
+        if (finalUIState == UIState.readyPhase)
+        {
+            currentUIState1 = UIState.none;
+            currentUIState2 = UIState.none;
+
+            yield return new WaitForSeconds(1);
+            finalUIState = UIState.tutorial;
+        }
         if (finalUIState == UIState.chooseWeight)
         {
             currentUIState1 = UIState.none;
             currentUIState2 = UIState.none;
 
             yield return new WaitForSeconds(1);
-            finalUIState = UIState.startLogo;
+            finalUIState = UIState.readyPhase;
         }
 
         if (finalUIState == UIState.chooseBlade)
