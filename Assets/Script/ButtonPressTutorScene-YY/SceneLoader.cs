@@ -9,7 +9,8 @@ public class SceneLoader : MonoBehaviour
     public string sceneNameToLoad;
     public bool returnPressed = false;
     public bool spacePressed = false;
-    public float delay = 1.0f;
+    public int count;
+    public float delay = 2f;
     // Start is called before the first frame update
 
 
@@ -26,9 +27,10 @@ public class SceneLoader : MonoBehaviour
             returnPressed = true;
         }
 
-        if(returnPressed&&spacePressed) 
+        if(returnPressed&&spacePressed&&count==0) 
         {
             StartCoroutine(NextScene());
+            count++;
         }
 
         if (loadNextScene) 
@@ -39,6 +41,7 @@ public class SceneLoader : MonoBehaviour
 
     IEnumerator NextScene()
     {
+        SoundManager.PlayconfirmClip();
         yield return new WaitForSeconds(delay);
         loadNextScene= true;
     }
