@@ -17,6 +17,7 @@ public class TopMove_Player1 : MonoBehaviour
     public float maxMoveSpeedControl;
     public float originMoveSpeedControl;
 
+    public GameObject pressEffect;
     //public TopDictionary topDicScr;
 
     //public UI_WeightChoose1 weightChooseScr;
@@ -210,6 +211,7 @@ public class TopMove_Player1 : MonoBehaviour
         {
             if(Input.GetKeyDown(KeyCode.Space))
             {
+                Instantiate(pressEffect, trans.position, Quaternion.identity);
                 rotateScr.SpeedUp();
             }
         }

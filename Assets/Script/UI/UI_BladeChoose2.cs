@@ -17,6 +17,7 @@ public class UI_BladeChoose2 : MonoBehaviour
     {
         choosing,
         finish,
+        stop,
     }
 
     public ChooseState currentChooseState;
@@ -37,11 +38,19 @@ public class UI_BladeChoose2 : MonoBehaviour
         {
             PressCheck();
         }
+        if (currentChooseState == ChooseState.stop)
+        {
+            
+        }
+        else
+        {
+            CheckSpace();
+        }
         //for(int i =0;i < bladeObjects.Length; i++)
         //{
         //    bladeObjects[i].SetActive(i==bladeIndex);
         //}
-        mask.SetActive(currentChooseState == ChooseState.finish);
+        mask.SetActive(currentChooseState == ChooseState.finish || currentChooseState == ChooseState.stop);
     }
 
     void PressCheck()
@@ -84,14 +93,27 @@ public class UI_BladeChoose2 : MonoBehaviour
             }
         }
 
+    }
+    public void CheckSpace()
+    {
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            readyButtonAni.SetTrigger("press");
-            uiManagerScr.currentUIState2 = UI_UIManager.UIState.chooseWeight;
-            gameManagerScr.ChangeSpeedDownRate(2, bladeIndex);
-            gameManagerScr.ChangeMaxSpeed(2,bladeIndex);
-            gameManagerScr.ChangeSpeedUpRate(2,bladeIndex);
-            currentChooseState = ChooseState.finish;
+            if (currentChooseState == ChooseState.choosing)
+            {
+                uiManagerScr.currentUIState2 = UI_UIManager.UIState.chooseWeight;
+                readyButtonAni.SetTrigger("press");
+                gameManagerScr.ChangeSpeedDownRate(2, bladeIndex);
+                gameManagerScr.ChangeMaxSpeed(2, bladeIndex);
+                gameManagerScr.ChangeSpeedUpRate(2, bladeIndex);
+                currentChooseState = ChooseState.finish;
+            }
+            else if (currentChooseState == ChooseState.finish)
+            {
+                uiManagerScr.currentUIState2 = UI_UIManager.UIState.none;
+                readyButtonAni.SetTrigger("press");
+
+                currentChooseState = ChooseState.choosing;
+            }
         }
     }
 }

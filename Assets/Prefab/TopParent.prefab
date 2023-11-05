@@ -205,6 +205,7 @@ MonoBehaviour:
   controlForce: 1
   moveScr: {fileID: 5554374211311134925}
   gameManagerScr: {fileID: 0}
+  hitEffect: {fileID: 611749885941921421, guid: 5e68be41d541cf14d993af0764255ebf, type: 3}
   currentCollideState: 0
 --- !u!1 &5554374211311134924
 GameObject:
@@ -262,6 +263,7 @@ MonoBehaviour:
   moveSpeedControl: 10
   maxMoveSpeedControl: 0
   originMoveSpeedControl: 10
+  pressEffect: {fileID: 3036501029853641050, guid: 5978fd9211a5b8848a51ea74ff4b7527, type: 3}
   trans: {fileID: 0}
   rotateScr: {fileID: 5554374211196123393}
   collideScr: {fileID: 5554374211196123450}
@@ -366,7 +368,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 11
   m_Sprite: {fileID: 21300000, guid: 21aa2c6f1d835da4b843a0c7fd961f17, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

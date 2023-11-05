@@ -140,6 +140,7 @@ MonoBehaviour:
   isCollide: 0
   moveScr: {fileID: 15529769840436057}
   gameManagerScr: {fileID: 0}
+  hitEffect: {fileID: 611749885941921421, guid: 5e68be41d541cf14d993af0764255ebf, type: 3}
   currentCollideState: 0
 --- !u!114 &15529769331911903
 MonoBehaviour:
@@ -266,6 +267,7 @@ MonoBehaviour:
   rotateScr: {fileID: 15529769331911903}
   collideScr: {fileID: 15529769331911902}
   gameManagerScr: {fileID: 0}
+  pressEffect: {fileID: 5539724513634558797, guid: 7e63dc385271a5441a58793a7fba056c, type: 3}
   currentMoveState: 0
 --- !u!1 &8531230304263251766
 GameObject:
@@ -340,7 +342,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 11
   m_Sprite: {fileID: 21300000, guid: 2415b044ac2f5b64395d021d8f8ac660, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

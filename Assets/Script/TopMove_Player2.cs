@@ -30,6 +30,7 @@ public class TopMove_Player2 : MonoBehaviour
 
     public GameManager gameManagerScr;
 
+    public GameObject pressEffect;
     public enum TopMoveState
     {
         idle,
@@ -213,6 +214,7 @@ public class TopMove_Player2 : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Return))
             {
+                Instantiate(pressEffect, trans.position, Quaternion.identity);
                 rotateScr.SpeedUp();
             }
         }

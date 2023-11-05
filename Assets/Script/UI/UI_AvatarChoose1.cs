@@ -18,6 +18,7 @@ public class UI_AvatarChoose1 : MonoBehaviour
     {
         choosing,
         finish,
+        stop,
     }
 
     public ChooseState currentChooseState;
@@ -39,7 +40,16 @@ public class UI_AvatarChoose1 : MonoBehaviour
             PressCheck();
         }
 
-        mask.SetActive(currentChooseState== ChooseState.finish);
+        if (currentChooseState == ChooseState.stop)
+        {
+            
+        }
+        else
+        {
+            CheckSpace();
+        }
+
+        mask.SetActive(currentChooseState== ChooseState.finish|| currentChooseState == ChooseState.stop);
 
         //for(int i =0;i < bladeObjects.Length; i++)
         //{
@@ -88,12 +98,26 @@ public class UI_AvatarChoose1 : MonoBehaviour
             }
         }
 
+
+    }
+    public void CheckSpace()
+    {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            uiManagerScr.currentUIState1 = UI_UIManager.UIState.chooseBlade;
-            readyButtonAni.SetTrigger("press");
-            gameManagerScr.ChangeAvatar(1,avatarIndex);
-            currentChooseState = ChooseState.finish;
+            if (currentChooseState == ChooseState.choosing)
+            {
+                uiManagerScr.currentUIState1 = UI_UIManager.UIState.chooseBlade;
+                readyButtonAni.SetTrigger("press");
+                gameManagerScr.ChangeAvatar(1, avatarIndex);
+                currentChooseState = ChooseState.finish;
+            }
+            else if (currentChooseState == ChooseState.finish)
+            {
+                uiManagerScr.currentUIState1 = UI_UIManager.UIState.none;
+                readyButtonAni.SetTrigger("press");
+
+                currentChooseState = ChooseState.choosing;
+            }
         }
     }
 }

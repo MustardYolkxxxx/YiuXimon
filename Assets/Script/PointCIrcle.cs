@@ -22,35 +22,40 @@ public class PointCIrcle : MonoBehaviour
         
     }
 
-    private void OnTriggerStay(Collider other)
+
+
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        if (other.CompareTag("Player1"))
-        {
-            if (other.GetComponent<TopRotate_Player1>().rotateSpeed == 0)
-            {
-                    gameManagerScr.player1Score += score;
-                    other.GetComponentInParent<TopMove_Player1>().DestroyThis();
-                    //StartCoroutine(CreatePlayer1IE());
-                    //count1++;      
-               
-            }
-        }
-        if (other.CompareTag("Player2"))
+        if (collision.CompareTag("Player1"))
         {
 
-            if (other.GetComponent<TopRotate_Player2>().rotateSpeed == 0)
+            if (collision.GetComponent<TopRotate_Player1>().rotateSpeed == 0)
             {
-              
-                    gameManagerScr.player2Score += score;
-                    other.GetComponentInParent<TopMove_Player2>().DestroyThis();
-                    //StartCoroutine(CreatePlayer2IE());
-                    //count2++;
-                
-               
+
+                gameManagerScr.player1Score += score;
+                collision.GetComponentInParent<TopMove_Player1>().DestroyThis();
+                //StartCoroutine(CreatePlayer1IE());
+                //count1++;      
+
             }
-            
+        }
+        if (collision.CompareTag("Player2"))
+        {
+
+            if (collision.GetComponent<TopRotate_Player2>().rotateSpeed == 0)
+            {
+
+                gameManagerScr.player2Score += score;
+                collision.GetComponentInParent<TopMove_Player2>().DestroyThis();
+                //StartCoroutine(CreatePlayer2IE());
+                //count2++;
+
+
+            }
+
         }
     }
+
 
     IEnumerator CreatePlayer1IE()
     {

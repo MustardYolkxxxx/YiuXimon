@@ -24,6 +24,8 @@ public class TopCollide_Player2 : MonoBehaviour
     public TopMove_Player2 moveScr;
 
     public GameManager gameManagerScr;
+
+    public GameObject hitEffect;
     public enum CollideState2
     {
         none,
@@ -82,6 +84,7 @@ public class TopCollide_Player2 : MonoBehaviour
         {
             
             forceDirect = collision.transform.position - parentTrans.position;
+            Instantiate(hitEffect, collision.transform.position, Quaternion.identity);
             targetRotateSpeed = collision.gameObject.GetComponent<TopRotate_Player1>().rotateSpeed;
             currentCollideState = CollideState2.collide;
         }
