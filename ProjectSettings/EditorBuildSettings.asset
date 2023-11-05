@@ -6,6 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/StartGame_Scene.unity
+    guid: 3450c28063d37d64c83e489eba4fa489
+  - enabled: 1
+    path: Assets/Scenes/ButtonPessTutorScene.unity
+    guid: f1000a039808efc44bf88fc014d13063
+  - enabled: 1
+    path: Assets/Scenes/PreBuildScene.unity
+    guid: f74ec854005b87e4e95b241e7580db8a
+  - enabled: 1
     path: Assets/Scenes/GameScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/GameEnd_Scene.unity
+    guid: f7083a31858136a479320163c1773b34
   m_configObjects: {}
