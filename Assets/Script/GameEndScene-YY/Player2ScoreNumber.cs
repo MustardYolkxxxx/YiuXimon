@@ -19,6 +19,7 @@ public class Player2ScoreNumber : MonoBehaviour
     void Update()
     {
         textMeshProUGUI.text = Player2Score.ToString();
+        ChangeNumber(PublicValue.playerScore2);
     }
 
     public void ChangeNumber(int newNumber)

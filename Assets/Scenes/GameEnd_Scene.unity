@@ -1015,6 +1015,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1338018779}
   - component: {fileID: 1338018778}
+  - component: {fileID: 1338018780}
   m_Layer: 0
   m_Name: SceneManager
   m_TagString: Untagged
@@ -1069,6 +1070,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1338018780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1338018777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8497d080b2799cf4ebad1cd2a9ef7e69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSourceBack: {fileID: 0}
 --- !u!1 &1362783953
 GameObject:
   m_ObjectHideFlags: 0
@@ -1367,7 +1381,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 500a2620d909fc2408fb5cf04d1c4a07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player1Score: 0
+  Player1Score: 10
   textMeshProUGUI: {fileID: 1500667996}
 --- !u!1 &1520556442
 GameObject:
@@ -1692,6 +1706,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1750196070}
   - component: {fileID: 1750196069}
+  - component: {fileID: 1750196071}
   m_Layer: 0
   m_Name: victory1
   m_TagString: Untagged
@@ -1773,6 +1788,40 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1750196071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1750196068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 148d17040544a6a4997ce6b8ff671d1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerBlade1: {fileID: 608949319}
+  playerBlade2: {fileID: 1520556444}
+  playerAvatar1: {fileID: 1682494948}
+  playerAvatar2: {fileID: 1185996402}
+  bladeSprites:
+  - {fileID: 21300000, guid: 7206e4ef776a1c143846dc95f6f1180a, type: 3}
+  - {fileID: 21300000, guid: 3d1ff40e4425b3543acd93a2082a88a6, type: 3}
+  - {fileID: 21300000, guid: e7298ddb8f6df8f449542632bc6fd7c6, type: 3}
+  - {fileID: 21300000, guid: 0f18b12253afeb445a72ef62817c895c, type: 3}
+  - {fileID: 21300000, guid: 67793b51c3b7f904e9d7784c7035fac8, type: 3}
+  - {fileID: 21300000, guid: 32adf374b78f9344ebd9eaf16a7a7a51, type: 3}
+  - {fileID: 21300000, guid: 8103c31ae499c974599d4eb35d4772fe, type: 3}
+  - {fileID: 21300000, guid: ca058f46b8ffcf94295779b215133aa0, type: 3}
+  avatarSprites:
+  - {fileID: 21300000, guid: 75649b7389b9c394ebe1bd74fcd88f02, type: 3}
+  - {fileID: 21300000, guid: fda237e4d67bdf84b80892f0713d0da9, type: 3}
+  - {fileID: 21300000, guid: 413814fd4c001c6439b1047c719b2eb5, type: 3}
+  - {fileID: 21300000, guid: 3976cc5c99d916641baffe1b8e1a9c1a, type: 3}
+  - {fileID: 21300000, guid: 16d5b7001ddbcad47bc19bf9232bec75, type: 3}
+  - {fileID: 21300000, guid: 43dc3ab0288981248bcc09e59230bad5, type: 3}
+  - {fileID: 21300000, guid: 282b39229a9dc084a8294f6313cfb655, type: 3}
+  - {fileID: 21300000, guid: 70bd27a3d5732bd468773e491fe6206e, type: 3}
 --- !u!1 &1832360424
 GameObject:
   m_ObjectHideFlags: 0

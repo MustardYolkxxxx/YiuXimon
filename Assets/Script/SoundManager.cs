@@ -13,6 +13,12 @@ public class   SoundManager : MonoBehaviour
     public static AudioClip confirm;
     public static AudioClip countdown;
     public static AudioClip timeOut;
+    public static AudioClip press2;
+    public static AudioClip fight;
+    public static AudioClip rotate;
+
+    public static AudioClip battleBGM;
+    public static AudioClip gameEndBGM;
     public void Start()
     {
         
@@ -24,6 +30,11 @@ public class   SoundManager : MonoBehaviour
         confirm = Resources.Load<AudioClip>("confirm");
         countdown = Resources.Load<AudioClip>("countdown");
         timeOut = Resources.Load<AudioClip>("TimeUp");
+        press2 = Resources.Load<AudioClip>("pressO");
+        fight=Resources.Load<AudioClip>("fight");
+        battleBGM = Resources.Load<AudioClip>("battle");
+        gameEndBGM = Resources.Load<AudioClip>("score");
+        rotate = Resources.Load<AudioClip>("rotate2");
     }
 
     public static void PlaypressClip()
@@ -59,5 +70,19 @@ public class   SoundManager : MonoBehaviour
     public static void PlayGameOver()
     {
         audioSource.PlayOneShot(timeOut);
+    }
+    public static void PlayPressClip2()
+    {
+        audioSource.PlayOneShot(press2);
+    }
+
+    public static void PlayFightClip()
+    {
+        audioSource.PlayOneShot(fight);
+    }
+
+    public static void PlayRotateClip()
+    {
+        audioSource.PlayOneShot(rotate);
     }
 }

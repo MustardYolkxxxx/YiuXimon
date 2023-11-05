@@ -50,8 +50,10 @@ public class TopCollide_Player1 : MonoBehaviour
         {
            StartCoroutine(CollideBack());
         }
-        maxControlForce = gameManagerScr.weight1;
+        maxControlForce = gameManagerScr.weightForce1;
         controlForce = originControlForce + maxControlForce;
+
+        force = initialForce - gameManagerScr.weightForce1 / 5;
         CheckForce();
     }
 
@@ -61,7 +63,11 @@ public class TopCollide_Player1 : MonoBehaviour
         float time = 0;
         while (time<collideTime)
         {
-            parentTrans.position = Vector3.Lerp(parentTrans.position, -forceDirect.normalized * (targetRotateSpeed/controlForce), Time.deltaTime * force);
+            Vector3 targetPos = new Vector3( parentTrans.position.x - (targetRotateSpeed / controlForce) * forceDirect.normalized.x, 
+                parentTrans.position.y - (targetRotateSpeed / controlForce)*forceDirect.normalized.y,0);
+            parentTrans.position = Vector3.Lerp(parentTrans.position, targetPos , Time.deltaTime * force);
+            //parentTrans.position = Vector3.Lerp(parentTrans.position, -forceDirect.normalized * (targetRotateSpeed/controlForce), Time.deltaTime * force);
+            Debug.Log("Player1"+-forceDirect.normalized * (targetRotateSpeed / controlForce));
             yield return null;
             time += Time.deltaTime;
         }
@@ -83,7 +89,8 @@ public class TopCollide_Player1 : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player2"))
         {
-            Debug.Log("12");
+
+            SoundManager.PlayFightClip();
             Instantiate(hitEffect, collision.transform.position, Quaternion.identity);
             forceDirect = collision.transform.position-parentTrans.position;
             targetRotateSpeed = collision.gameObject.GetComponent<TopRotate_Player2>().rotateSpeed;

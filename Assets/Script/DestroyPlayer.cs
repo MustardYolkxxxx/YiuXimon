@@ -5,7 +5,7 @@ using UnityEngine;
 public class DestroyPlayer : MonoBehaviour
 {
     public GameManager manager;
-
+    public int score=10;
     public GameObject destroyEffect;
 
     // Start is called before the first frame update
@@ -25,6 +25,7 @@ public class DestroyPlayer : MonoBehaviour
         if (collision.gameObject.CompareTag("Player1"))
         {
             Instantiate(destroyEffect,collision.transform.position,Quaternion.identity);
+            manager.player2Score += score;
             collision.gameObject.GetComponentInParent<TopMove_Player1>().DestroyThis();
             StartCoroutine(CreatePlayer1IE());
         }
@@ -32,6 +33,7 @@ public class DestroyPlayer : MonoBehaviour
         if (collision.gameObject.CompareTag("Player2"))
         {
             Instantiate(destroyEffect, collision.transform.position, Quaternion.identity);
+            manager.player1Score += score;
             collision.gameObject.GetComponentInParent<TopMove_Player2>().DestroyThis();
             StartCoroutine(CreatePlayer2IE());
         }

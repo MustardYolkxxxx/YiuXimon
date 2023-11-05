@@ -41,9 +41,10 @@ public class PointCIrcle : MonoBehaviour
                 stayTime1 = 0;
             }
 
-            if(stayTime1>2)
+            if(stayTime1>1)
             {
                 gameManagerScr.player1Score += score;
+                gameManagerScr.player2Score -= 10;
                 collision.GetComponentInParent<TopMove_Player1>().DestroyThis();
             }
         }
@@ -62,9 +63,11 @@ public class PointCIrcle : MonoBehaviour
                 stayTime2 = 0;
             }
 
-            if (stayTime2 > 2)
+            if (stayTime2 > 1)
             {
                 gameManagerScr.player2Score += score;
+                gameManagerScr.player1Score -= 10;
+                
                 collision.GetComponentInParent<TopMove_Player2>().DestroyThis();
             }
 

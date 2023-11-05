@@ -211,6 +211,7 @@ public class TopMove_Player1 : MonoBehaviour
         {
             if(Input.GetKeyDown(KeyCode.Space))
             {
+                SoundManager.PlayRotateClip();
                 Instantiate(pressEffect, trans.position, Quaternion.identity);
                 rotateScr.SpeedUp();
             }

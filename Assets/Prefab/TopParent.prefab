@@ -194,14 +194,14 @@ MonoBehaviour:
   col: {fileID: 5554374211196123397}
   parentTrans: {fileID: 5554374211311134914}
   forceDirect: {x: 0, y: 0}
-  initialForce: 2
+  initialForce: 10
   force: 0
   forceDownSpeed: 1
   collideTime: 0.7
   isCollide: 0
   targetRotateSpeed: 0
   maxControlForce: 0
-  originControlForce: 1
+  originControlForce: 15
   controlForce: 1
   moveScr: {fileID: 5554374211311134925}
   gameManagerScr: {fileID: 0}
@@ -234,8 +234,8 @@ Transform:
   m_GameObject: {fileID: 5554374211311134924}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5554374211196123399}
   - {fileID: 641889324617561112}

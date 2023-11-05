@@ -122,6 +122,7 @@ public class UI_UIManager : MonoBehaviour
     {
         finalUIState = UIState.gaming;
         yield return null;
+        gameManagerScr.ChangeBackMusic();
         //gameManagerScr.ChangeSceneBloom(0.6f);
         gameManagerScr.CreatePlayer1();
         gameManagerScr.CreatePlayer2();

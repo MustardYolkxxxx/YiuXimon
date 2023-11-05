@@ -25,6 +25,8 @@ public class GameManager : MonoBehaviour
 
     public Bloom sceneBloom;
 
+    public AudioSource audioSourceBack;
+
     public int sprite1;
     public int sprite2;
 
@@ -51,16 +53,20 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        audioSourceBack = GameObject.Find("BackGroundSound").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        PublicValue.bladeIndex2 = player2Score;
-        PublicValue.bladeIndex1 = player1Score;
+        PublicValue.playerScore1 = player1Score;
+        PublicValue.playerScore2 = player2Score;
     }
-
+    public void ChangeBackMusic()
+    {
+        audioSourceBack.clip = SoundManager.battleBGM;
+        audioSourceBack.Play();
+    }
     public void CreatePlayer1()
     {
         Instantiate(player1,createPos1.transform.position,Quaternion.identity);

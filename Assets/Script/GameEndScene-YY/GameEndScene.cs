@@ -42,6 +42,20 @@ public class GameEndScene : MonoBehaviour
     IEnumerator DelayedStart()
     {
         yield return new WaitForSeconds(delay);
+        int P1score = Player1Score.Player1Score;
+        int P2score = Player2Score.Player2Score;
+        if (P1score > P2score)
+        {
+            player1Win = true;
+        }
+        if (P2score > P1score)
+        {
+            player1Win = false;
+        }
+        if (P1score == P2score)
+        {
+            Draw = true;
+        }
         loadNextSceneED = true;
         ScoreText.SetActive(false);
         if(Draw)
@@ -80,20 +94,7 @@ StartCoroutine(MoveObject());
 
     void Update()
     {
-        int P1score = Player1Score.Player1Score;
-        int P2score = Player2Score.Player2Score;
-        if (P1score > P2score) 
-        {
-            player1Win = true;
-        }
-        if(P2score > P1score)
-        {
-            player1Win = false;
-        }
-        if (P1score == P2score)
-        {
-            Draw = true;
-        }
+        
 
             if (loadNextSceneED) 
         {
