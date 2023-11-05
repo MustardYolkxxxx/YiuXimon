@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameEndScene : MonoBehaviour
 {   public bool player1Win = false;
@@ -12,13 +13,17 @@ public class GameEndScene : MonoBehaviour
     public float delay = 2.0f;
     public Vector3 winScale = new Vector3(1.4f, 1.4f, 1f);
     public Vector3 loseScale = new Vector3(.7f, .7f, 1f);
-    private Vector3 originalScale; 
     public GameObject player1; 
     public GameObject player2; 
     public GameObject player1winText;
     public GameObject player2winText;
     public GameObject drawText;
     public GameObject ScoreText;
+    public GameObject DrawButton;
+    public bool loadNextSceneED = false;
+    public string sceneNameToLoad;
+
+
 
 
 
@@ -28,18 +33,21 @@ public class GameEndScene : MonoBehaviour
         player1winText.SetActive(false);
         player2winText.SetActive(false);
         drawText.SetActive(false);
-        originalScale = player1.transform.localScale;
+        DrawButton.SetActive(false);
         StartCoroutine(DelayedStart());
     }
     IEnumerator DelayedStart()
     {
         yield return new WaitForSeconds(delay);
+        loadNextSceneED = true;
         ScoreText.SetActive(false);
         if(Draw)
         {
             drawText.SetActive(true);
-        }
-        StartCoroutine(MoveObject());
+            DrawButton.SetActive(true);
+
+}
+StartCoroutine(MoveObject());
     }
     IEnumerator MoveObject()
     {
@@ -64,6 +72,17 @@ public class GameEndScene : MonoBehaviour
             }
 
             yield return null;
+        }
+    }
+
+    private void Update()
+    {
+        if (loadNextSceneED) 
+        {
+            if (Input.GetKeyDown(KeyCode.Space)|| Input.GetKeyDown(KeyCode.Return))
+            {
+                SceneManager.LoadScene(sceneNameToLoad);
+            }
         }
     }
 }

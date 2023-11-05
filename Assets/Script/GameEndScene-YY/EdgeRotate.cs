@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EdgeRotate : MonoBehaviour
 {
-    public float speed = 100f; // 每秒旋转的度数
+    public float speed = 100f;
 
     void Update()
     {
