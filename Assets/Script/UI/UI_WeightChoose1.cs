@@ -15,6 +15,8 @@ public class UI_WeightChoose1 : MonoBehaviour
     public Animator readyButtonAni;
     public Animator leftButtonAni;
     public Animator rightButtonAni;
+
+    public int musicCount;
     public enum ChooseState
     {
         choosing,
@@ -42,7 +44,11 @@ public class UI_WeightChoose1 : MonoBehaviour
         }
         if (currentChooseState == ChooseState.stop)
         {
-            
+            if (musicCount == 0)
+            {
+                SoundManager.PlayconfirmClip();
+                musicCount++;
+            }
         }
         else
         {
@@ -61,6 +67,7 @@ public class UI_WeightChoose1 : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.A))
         {
+            SoundManager.PlaypressClip();
             if (weightIndex == 0)
             {
                 leftButtonAni.SetTrigger("press");
@@ -80,6 +87,7 @@ public class UI_WeightChoose1 : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
+            SoundManager.PlaypressClip();
             if (weightIndex == weightObjects.Length - 1)
             {
                 rightButtonAni.SetTrigger("press");
@@ -103,6 +111,7 @@ public class UI_WeightChoose1 : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            SoundManager.PlaypressClip();
             if (currentChooseState == ChooseState.choosing)
             {
                 uiManagerScr.currentUIState1 = UI_UIManager.UIState.readyPhase;

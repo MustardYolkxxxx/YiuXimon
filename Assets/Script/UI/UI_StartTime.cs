@@ -27,7 +27,8 @@ public class UI_StartTime : MonoBehaviour
     }
     IEnumerator StartTime()
     {
-        yield return new WaitForSeconds(1);
+        SoundManager.PlayreadyClip2();
+        yield return new WaitForSeconds(0.3f);
         timeText.text = time.ToString();
         time = 2;
         yield return new WaitForSeconds(1);
@@ -35,6 +36,8 @@ public class UI_StartTime : MonoBehaviour
         time = 1;
         yield return new WaitForSeconds(1);
         timeText.text = time.ToString();
-        uiManagerScr.finalUIState = UI_UIManager.UIState.gaming;
+
+        yield return new WaitForSeconds(1);
+        uiManagerScr.finalUIState = UI_UIManager.UIState.readyGo;
     }
 }

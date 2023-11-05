@@ -11,16 +11,19 @@ public class   SoundManager : MonoBehaviour
     public static AudioClip home;
     public static AudioClip ready;
     public static AudioClip confirm;
-
+    public static AudioClip countdown;
+    public static AudioClip timeOut;
     public void Start()
     {
-        DontDestroyOnLoad(this.gameObject);
+        
         audioSource = GetComponent<AudioSource>();
         press = Resources.Load<AudioClip>("press");
         quit = Resources.Load<AudioClip>("quit");
         home = Resources.Load<AudioClip>("home");
         ready = Resources.Load<AudioClip>("ready");
         confirm = Resources.Load<AudioClip>("confirm");
+        countdown = Resources.Load<AudioClip>("countdown");
+        timeOut = Resources.Load<AudioClip>("TimeUp");
     }
 
     public static void PlaypressClip()
@@ -48,5 +51,13 @@ public class   SoundManager : MonoBehaviour
         audioSource.PlayOneShot(confirm);
     }
 
+    public static void PlayreadyClip2()
+    {
+        audioSource.PlayOneShot(countdown);
+    }
 
+    public static void PlayGameOver()
+    {
+        audioSource.PlayOneShot(timeOut);
+    }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class GameManager : MonoBehaviour
 {
@@ -21,6 +22,8 @@ public class GameManager : MonoBehaviour
 
     public UI_BladeChoose1 bladeChoose1Scr;
     public UI_BladeChoose2 bladeChoose2Scr;
+
+    public Bloom sceneBloom;
 
     public int sprite1;
     public int sprite2;
@@ -142,4 +145,9 @@ public class GameManager : MonoBehaviour
             blade2SpeedUpRate = topDicScr.BladeDic[index].speedUpRate;
         }
     }
+
+    //public void ChangeSceneBloom(float intensity)
+    //{
+    //    sceneBloom.intensity.value = intensity;
+    //}
 }

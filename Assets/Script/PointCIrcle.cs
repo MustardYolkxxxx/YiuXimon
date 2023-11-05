@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class PointCIrcle : MonoBehaviour
 {
-
     public int score;
     public int count1;
     public int count2;
-    public GameManager gameManagerScr;
-    
+    public float stayTime1;
+    public float stayTime2;
+
+    public GameManager gameManagerScr; 
     // Start is called before the first frame update
     void Start()
     {
@@ -28,15 +29,22 @@ public class PointCIrcle : MonoBehaviour
     {
         if (collision.CompareTag("Player1"))
         {
-
             if (collision.GetComponent<TopRotate_Player1>().rotateSpeed == 0)
             {
-
-                gameManagerScr.player1Score += score;
-                collision.GetComponentInParent<TopMove_Player1>().DestroyThis();
+                stayTime1 += Time.deltaTime;
+                
                 //StartCoroutine(CreatePlayer1IE());
                 //count1++;      
+            }
+            else
+            {
+                stayTime1 = 0;
+            }
 
+            if(stayTime1>2)
+            {
+                gameManagerScr.player1Score += score;
+                collision.GetComponentInParent<TopMove_Player1>().DestroyThis();
             }
         }
         if (collision.CompareTag("Player2"))
@@ -44,19 +52,26 @@ public class PointCIrcle : MonoBehaviour
 
             if (collision.GetComponent<TopRotate_Player2>().rotateSpeed == 0)
             {
-
-                gameManagerScr.player2Score += score;
-                collision.GetComponentInParent<TopMove_Player2>().DestroyThis();
+                stayTime2 += Time.deltaTime;
+                
                 //StartCoroutine(CreatePlayer2IE());
                 //count2++;
+            }
+            else
+            {
+                stayTime2 = 0;
+            }
 
-
+            if (stayTime2 > 2)
+            {
+                gameManagerScr.player2Score += score;
+                collision.GetComponentInParent<TopMove_Player2>().DestroyThis();
             }
 
         }
     }
 
-
+    
     IEnumerator CreatePlayer1IE()
     {
 

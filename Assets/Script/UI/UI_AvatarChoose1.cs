@@ -14,6 +14,8 @@ public class UI_AvatarChoose1 : MonoBehaviour
     public Animator readyButtonAni;
     public Animator leftButtonAni;
     public Animator rightButtonAni;
+
+    public int musicCount;
     public enum ChooseState
     {
         choosing,
@@ -42,6 +44,11 @@ public class UI_AvatarChoose1 : MonoBehaviour
 
         if (currentChooseState == ChooseState.stop)
         {
+            if(musicCount== 0)
+            {
+                SoundManager.PlayconfirmClip();
+                musicCount++;
+            }
             
         }
         else
@@ -62,12 +69,15 @@ public class UI_AvatarChoose1 : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.A))
         {
+            SoundManager.PlaypressClip();
             if (avatarIndex == 0)
             {
+               
                 leftButtonAni.SetTrigger("press");
             }
             else
             {
+                
                 leftButtonAni.SetTrigger("press");
                 avatarObjects[avatarIndex].GetComponent<UI_SlideAni>().SlideRightDisappear();
                 avatarIndex--;
@@ -81,12 +91,15 @@ public class UI_AvatarChoose1 : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
+            SoundManager.PlaypressClip();
             if (avatarIndex == avatarObjects.Length - 1)
             {
+                
                 rightButtonAni.SetTrigger("press");
             }
             else
             {
+                
                 rightButtonAni.SetTrigger("press");
                 avatarObjects[avatarIndex].GetComponent<UI_SlideAni>().SlideLeftDisappear();
                 avatarIndex++;
@@ -104,8 +117,10 @@ public class UI_AvatarChoose1 : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            SoundManager.PlaypressClip();
             if (currentChooseState == ChooseState.choosing)
             {
+                
                 uiManagerScr.currentUIState1 = UI_UIManager.UIState.chooseBlade;
                 readyButtonAni.SetTrigger("press");
                 gameManagerScr.ChangeAvatar(1, avatarIndex);
@@ -113,6 +128,7 @@ public class UI_AvatarChoose1 : MonoBehaviour
             }
             else if (currentChooseState == ChooseState.finish)
             {
+                
                 uiManagerScr.currentUIState1 = UI_UIManager.UIState.none;
                 readyButtonAni.SetTrigger("press");
 

@@ -57,6 +57,7 @@ public class UI_BladeChoose2 : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
+            SoundManager.PlaypressClip();
             if (bladeIndex == 0)
             {
                 leftButtonAni.SetTrigger("press");
@@ -76,6 +77,7 @@ public class UI_BladeChoose2 : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
+            SoundManager.PlaypressClip();
             if (bladeIndex == bladeObjects.Length - 1)
             {
                 rightButtonAni.SetTrigger("press");
@@ -98,6 +100,7 @@ public class UI_BladeChoose2 : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Return))
         {
+            SoundManager.PlaypressClip();
             if (currentChooseState == ChooseState.choosing)
             {
                 uiManagerScr.currentUIState2 = UI_UIManager.UIState.chooseWeight;

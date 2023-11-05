@@ -17,6 +17,7 @@ public class UI_TutorialConfirm : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Space)|| Input.GetKeyDown(KeyCode.Return)) 
         {
+            SoundManager.PlayconfirmClip();
             ani.SetTrigger("press");
             uiManagerScr.finalUIState = UI_UIManager.UIState.startLogo;
         }

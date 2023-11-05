@@ -43,6 +43,7 @@ public class UI_UIManager : MonoBehaviour
         readyPhase,
         tutorial,
         startLogo,
+        readyGo,
         gaming,
         gameover,
     }
@@ -72,14 +73,14 @@ public class UI_UIManager : MonoBehaviour
         //    player1.SetActive(finalUIState == UIState.gaming);
         //    player2.SetActive(finalUIState == UIState.gaming);
         //}
-        //if (finalUIState == UIState.startLogo)
-        //{
-        //    StartCoroutine(StartGame());
-        //}
+        if (finalUIState == UIState.readyGo)
+        {
+            StartCoroutine(StartGame());
+        }
 
 
-            //weightChooseUI.SetActive(finalUIState == UIState.chooseWeight);
-            ChangeCurrentState();
+        //weightChooseUI.SetActive(finalUIState == UIState.chooseWeight);
+        ChangeCurrentState();
     }
 
     void ChangeCurrentState()
@@ -121,6 +122,7 @@ public class UI_UIManager : MonoBehaviour
     {
         finalUIState = UIState.gaming;
         yield return null;
+        //gameManagerScr.ChangeSceneBloom(0.6f);
         gameManagerScr.CreatePlayer1();
         gameManagerScr.CreatePlayer2();
         

@@ -59,6 +59,7 @@ public class UI_AvatarChoose2 : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
+            SoundManager.PlaypressClip();
             if (avatarIndex == 0)
             {
                 leftButtonAni.SetTrigger("press");
@@ -78,6 +79,7 @@ public class UI_AvatarChoose2 : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
+            SoundManager.PlaypressClip();
             if (avatarIndex == avatarObjects.Length - 1)
             {
                 rightButtonAni.SetTrigger("press");
@@ -100,6 +102,7 @@ public class UI_AvatarChoose2 : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Return))
         {
+            SoundManager.PlaypressClip();
             if (currentChooseState == ChooseState.choosing)
             {
                 uiManagerScr.currentUIState2 = UI_UIManager.UIState.chooseBlade;

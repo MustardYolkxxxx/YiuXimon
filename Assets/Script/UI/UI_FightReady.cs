@@ -19,6 +19,7 @@ public class UI_FightReady : MonoBehaviour
     public ChooseState currentChooseState2;
 
     public int index;
+    public int musicCount;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,7 +33,11 @@ public class UI_FightReady : MonoBehaviour
         {
             if (currentChooseState1 == ChooseState.stop)
             {
-
+                if (musicCount == 0)
+                {
+                    SoundManager.PlayconfirmClip();
+                    musicCount++;
+                }
             }
             else
             {
@@ -58,6 +63,7 @@ public class UI_FightReady : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
+                SoundManager.PlaypressClip();
                 if (currentChooseState1 == ChooseState.choosing)
                 {
                     uiManagerScr.currentUIState1 = UI_UIManager.UIState.tutorial;
@@ -77,6 +83,7 @@ public class UI_FightReady : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Return))
             {
+                SoundManager.PlaypressClip();
                 if (currentChooseState2 == ChooseState.choosing)
                 {
                     uiManagerScr.currentUIState2 = UI_UIManager.UIState.tutorial;
