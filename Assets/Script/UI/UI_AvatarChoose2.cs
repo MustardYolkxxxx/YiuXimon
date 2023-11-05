@@ -8,6 +8,9 @@ public class UI_AvatarChoose2 : MonoBehaviour
     public GameObject[] avatarObjects;
     public int avatarIndex;
 
+    public Animator readyButtonAni;
+    public Animator leftButtonAni;
+    public Animator rightButtonAni;
     public enum ChooseState
     {
         choosing,
@@ -46,10 +49,11 @@ public class UI_AvatarChoose2 : MonoBehaviour
         {
             if (avatarIndex == 0)
             {
-
+                leftButtonAni.SetTrigger("press");
             }
             else
             {
+                leftButtonAni.SetTrigger("press");
                 avatarObjects[avatarIndex].GetComponent<UI_SlideAni>().SlideRightDisappear();
                 avatarIndex--;
                 avatarObjects[avatarIndex].GetComponent<UI_SlideAni>().SlideLeft();
@@ -64,10 +68,11 @@ public class UI_AvatarChoose2 : MonoBehaviour
         {
             if (avatarIndex == avatarObjects.Length - 1)
             {
-
+                rightButtonAni.SetTrigger("press");
             }
             else
             {
+                rightButtonAni.SetTrigger("press");
                 avatarObjects[avatarIndex].GetComponent<UI_SlideAni>().SlideLeftDisappear();
                 avatarIndex++;
                 avatarObjects[avatarIndex].GetComponent<UI_SlideAni>().SlideRight();
@@ -81,6 +86,7 @@ public class UI_AvatarChoose2 : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Return))
         {
             uiManagerScr.currentUIState2 = UI_UIManager.UIState.chooseBlade;
+            readyButtonAni.SetTrigger("press");
             currentChooseState = ChooseState.finish;
         }
     }

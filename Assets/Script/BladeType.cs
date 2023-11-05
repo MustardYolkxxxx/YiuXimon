@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BladeType : MonoBehaviour
+public class BladeType
 {
 
     public string bladeName;
     public int id;
     public float maxSpeed;
+    public float speedUpRate;
 
     public BladeType()
     {
@@ -30,15 +31,12 @@ public class BladeType : MonoBehaviour
         this.bladeName = name;
         this.maxSpeed = speed;
     }
+    public BladeType(int id, string name, float speed, float speedUpRate)
+    {
+        this.id = id;
+        this.bladeName = name;
+        this.maxSpeed = speed;
+        this.speedUpRate = speedUpRate;
+    }
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
