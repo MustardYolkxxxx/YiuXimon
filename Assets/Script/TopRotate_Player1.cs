@@ -12,7 +12,13 @@ public class TopRotate_Player1 : MonoBehaviour
     public float originMaxRotateSpeed;
 
     [SerializeField] public float maxRotateSpeed;
-    
+
+    public SpriteRenderer sprite;
+
+    public SpriteRenderer avatarSprite;
+
+    public Sprite[] sprites;
+    public Sprite[] avatarSprites;
 
     //public TopDictionary topDicScr;
 
@@ -23,6 +29,7 @@ public class TopRotate_Player1 : MonoBehaviour
 
     public GameManager gameManagerScr;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +37,11 @@ public class TopRotate_Player1 : MonoBehaviour
         maxRotateSpeed = originMaxRotateSpeed;
         trans = gameObject.GetComponent<Transform>();
         gameManagerScr = FindObjectOfType<GameManager>();
+
+        sprite = gameObject.GetComponent<SpriteRenderer>();
+
+        sprite.sprite = sprites[gameManagerScr.sprite1];
+        avatarSprite.sprite = avatarSprites[gameManagerScr.avatarSprite1];
         //topDicScr = FindObjectOfType<TopDictionary>();
         //bladeChooseScr = FindObjectOfType<UI_BladeChoose1>();
     }

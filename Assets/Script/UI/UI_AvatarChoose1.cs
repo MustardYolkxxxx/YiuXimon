@@ -9,6 +9,7 @@ public class UI_AvatarChoose1 : MonoBehaviour
     public int avatarIndex;
 
     public GameObject mask;
+    public GameManager gameManagerScr;
 
     public Animator readyButtonAni;
     public Animator leftButtonAni;
@@ -25,7 +26,7 @@ public class UI_AvatarChoose1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameManagerScr = FindObjectOfType<GameManager>();
         uiManagerScr = FindObjectOfType<UI_UIManager>();
         //bladeImage = GetComponent<Image>();
     }
@@ -91,6 +92,7 @@ public class UI_AvatarChoose1 : MonoBehaviour
         {
             uiManagerScr.currentUIState1 = UI_UIManager.UIState.chooseBlade;
             readyButtonAni.SetTrigger("press");
+            gameManagerScr.ChangeAvatar(1,avatarIndex);
             currentChooseState = ChooseState.finish;
         }
     }

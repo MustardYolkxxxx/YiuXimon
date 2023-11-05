@@ -348,6 +348,7 @@ MonoBehaviour:
   - {fileID: 874329120}
   avatarIndex: 0
   mask: {fileID: 1973314494}
+  gameManagerScr: {fileID: 0}
   readyButtonAni: {fileID: 1728221548}
   leftButtonAni: {fileID: 1133034426}
   rightButtonAni: {fileID: 791744857}
@@ -1735,6 +1736,10 @@ MonoBehaviour:
   weightChoose2Scr: {fileID: 894039944}
   bladeChoose1Scr: {fileID: 1475229186}
   bladeChoose2Scr: {fileID: 967578755}
+  sprite1: 0
+  sprite2: 0
+  avatarSprite1: 0
+  avatarSprite2: 0
   weight1: 0
   weight2: 0
   bladeMaxSpeed1: 0
@@ -1843,6 +1848,7 @@ MonoBehaviour:
   readyButtonAni: {fileID: 1173370584}
   leftButtonAni: {fileID: 436830145}
   rightButtonAni: {fileID: 2095331161}
+  gameManagerScr: {fileID: 0}
   currentChooseState: 0
   mask: {fileID: 1348274220}
 --- !u!114 &219336441
@@ -18326,7 +18332,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 15529769840436053, guid: ec29791b25455a24fb880a5084726736, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 15529769840436058, guid: ec29791b25455a24fb880a5084726736, type: 3}
       propertyPath: m_RootOrder
@@ -18431,7 +18437,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5554374211311134924, guid: 33bc0bf6821481840bc9a633908326bf, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33bc0bf6821481840bc9a633908326bf, type: 3}

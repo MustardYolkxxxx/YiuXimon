@@ -49,6 +49,8 @@ public class UI_UIManager : MonoBehaviour
         {
             StartCoroutine(StartGame());
         }
+
+
             //weightChooseUI.SetActive(finalUIState == UIState.chooseWeight);
             ChangeCurrentState();
     }
@@ -85,7 +87,7 @@ public class UI_UIManager : MonoBehaviour
             currentUIState2 = UIState.none;
 
             yield return new WaitForSeconds(1);
-            finalUIState = UIState.gaming;
+            finalUIState = UIState.startLogo;
         }
 
         if (finalUIState == UIState.chooseBlade)

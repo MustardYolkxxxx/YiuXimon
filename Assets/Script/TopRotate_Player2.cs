@@ -14,12 +14,18 @@ public class TopRotate_Player2 : MonoBehaviour
 
     public GameManager gameManagerScr;
 
+    public SpriteRenderer sprite;
+    public SpriteRenderer avatarSprite;
+
+    public Sprite[] sprites;
+    public Sprite[] avatarSprites;
     //public TopDictionary topDicScr;
 
     //public UI_BladeChoose2 bladeChooseScr;
     public float speedUpRate;
     [SerializeField] public float maxSpeedUpRate;
     public float originSpeedUpRate;
+
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +35,12 @@ public class TopRotate_Player2 : MonoBehaviour
         trans = gameObject.GetComponent<Transform>();
         //topDicScr = FindObjectOfType<TopDictionary>();
         gameManagerScr = FindObjectOfType<GameManager>();
+
+        sprite = GetComponent<SpriteRenderer>();
+        sprite.sprite = sprites[gameManagerScr.sprite2];
+
+        avatarSprite.sprite = avatarSprites[gameManagerScr.avatarSprite2];
+
     }
 
     private void FixedUpdate()
@@ -42,6 +54,8 @@ public class TopRotate_Player2 : MonoBehaviour
         trans.rotation *= Quaternion.Euler(0, 0, rotateSpeed);
         rotateSpeed -= rotateSpeedDown * Time.deltaTime;
         maxRotateSpeed = originMaxRotateSpeed + gameManagerScr.bladeMaxSpeed2;
+
+       
 
         CheckRotateSpeed();
     }
