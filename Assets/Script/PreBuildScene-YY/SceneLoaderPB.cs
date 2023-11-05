@@ -10,6 +10,7 @@ public class SceneLoaderPB : MonoBehaviour
     public bool returnPressedPB = false;
     public bool spacePressedPB = false;
     public float delay = 1.0f;
+    public int count;
     // Start is called before the first frame update
 
 
@@ -26,9 +27,10 @@ public class SceneLoaderPB : MonoBehaviour
             returnPressedPB = true;
         }
 
-        if (returnPressedPB && spacePressedPB)
+        if (returnPressedPB && spacePressedPB && count == 0)
         {
             StartCoroutine(NextScene());
+            count++;
         }
 
         if (loadNextScenePB)
@@ -39,6 +41,7 @@ public class SceneLoaderPB : MonoBehaviour
 
     IEnumerator NextScene()
     {
+        SoundManager.PlayconfirmClip();
         yield return new WaitForSeconds(delay);
         loadNextScenePB = true;
     }
