@@ -7,7 +7,7 @@ public class UI_BladeChoose2 : MonoBehaviour
     public UI_UIManager uiManagerScr;
     public GameObject[] bladeObjects;
     public int bladeIndex;
-
+    public GameObject mask;
     public enum ChooseState
     {
         choosing,
@@ -35,7 +35,7 @@ public class UI_BladeChoose2 : MonoBehaviour
         //{
         //    bladeObjects[i].SetActive(i==bladeIndex);
         //}
-
+        mask.SetActive(currentChooseState == ChooseState.finish);
     }
 
     void PressCheck()

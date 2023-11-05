@@ -33,6 +33,7 @@ public class UI_UIManager : MonoBehaviour
     {
         avatarChooseUI.SetActive(finalUIState == UIState.chooseAvatar);
         bladeChooseUI.SetActive(finalUIState == UIState.chooseBlade);
+        weightChooseUI.SetActive(finalUIState == UIState.chooseWeight);
         //weightChooseUI.SetActive(finalUIState == UIState.chooseWeight);
         ChangeCurrentState();
     }

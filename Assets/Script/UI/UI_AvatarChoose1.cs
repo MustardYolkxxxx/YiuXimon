@@ -7,6 +7,8 @@ public class UI_AvatarChoose1 : MonoBehaviour
     public UI_UIManager uiManagerScr;
     public GameObject[] avatarObjects;
     public int avatarIndex;
+
+    public GameObject mask;
     public enum ChooseState
     {
         choosing,
@@ -30,6 +32,9 @@ public class UI_AvatarChoose1 : MonoBehaviour
         {
             PressCheck();
         }
+
+        mask.SetActive(currentChooseState== ChooseState.finish);
+
         //for(int i =0;i < bladeObjects.Length; i++)
         //{
         //    bladeObjects[i].SetActive(i==bladeIndex);

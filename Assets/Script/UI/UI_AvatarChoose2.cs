@@ -15,6 +15,7 @@ public class UI_AvatarChoose2 : MonoBehaviour
     }
 
     public ChooseState currentChooseState;
+    public GameObject mask;
     //public Image bladeImage;
     // Start is called before the first frame update
     void Start()
@@ -30,6 +31,8 @@ public class UI_AvatarChoose2 : MonoBehaviour
         {
             PressCheck();
         }
+
+        mask.SetActive(currentChooseState == ChooseState.finish);
         //for(int i =0;i < bladeObjects.Length; i++)
         //{
         //    bladeObjects[i].SetActive(i==bladeIndex);
