@@ -10,18 +10,28 @@ public class TopRotate_Player1 : MonoBehaviour
     public Transform trans;
 
     public float originMaxRotateSpeed;
-    public float maxRotateSpeed;
 
-    public TopDictionary topDicScr;
+    [SerializeField] public float maxRotateSpeed;
+    
 
-    public UI_BladeChoose1 bladeChooseScr;
+    //public TopDictionary topDicScr;
+
+    //public UI_BladeChoose1 bladeChooseScr;
+    public float speedUpRate;
+    [SerializeField] public float maxSpeedUpRate;
+    public float originSpeedUpRate;
+
+    public GameManager gameManagerScr;
+
     // Start is called before the first frame update
     void Start()
     {
+        speedUpRate = originSpeedUpRate;
         maxRotateSpeed = originMaxRotateSpeed;
         trans = gameObject.GetComponent<Transform>();
-        topDicScr = FindObjectOfType<TopDictionary>();
-        bladeChooseScr = FindObjectOfType<UI_BladeChoose1>();
+        gameManagerScr = FindObjectOfType<GameManager>();
+        //topDicScr = FindObjectOfType<TopDictionary>();
+        //bladeChooseScr = FindObjectOfType<UI_BladeChoose1>();
     }
 
     private void FixedUpdate()
@@ -31,10 +41,11 @@ public class TopRotate_Player1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        speedUpRate = originSpeedUpRate + maxSpeedUpRate;
         trans.rotation*= Quaternion.Euler(0,0, rotateSpeed);
         rotateSpeed -= rotateSpeedDown*Time.deltaTime;
-        maxRotateSpeed = originMaxRotateSpeed + topDicScr.BladeDic[bladeChooseScr.bladeIndex].maxSpeed;
-        
+        maxRotateSpeed = originMaxRotateSpeed + gameManagerScr.bladeMaxSpeed2;
+
         CheckRotateSpeed();
     }
 
@@ -49,5 +60,10 @@ public class TopRotate_Player1 : MonoBehaviour
         {
             rotateSpeed = maxRotateSpeed;
         }
+    }
+
+   public void SpeedUp()
+    {
+        rotateSpeed += speedUpRate;
     }
 }

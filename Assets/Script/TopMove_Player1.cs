@@ -14,13 +14,20 @@ public class TopMove_Player1 : MonoBehaviour
     //public float moveY;
     public float controlTime;
     public float moveSpeedControl;
-    public float speedUpRate;
+    public float maxMoveSpeedControl;
+    public float originMoveSpeedControl;
+
+    //public TopDictionary topDicScr;
+
+    //public UI_WeightChoose1 weightChooseScr;
 
     public Transform trans;
-    public Rigidbody2D rb;
+    //public Rigidbody2D rb;
 
     public TopRotate_Player1 rotateScr;
     public TopCollide_Player1 collideScr;
+
+    public GameManager gameManagerScr;
 
     public enum TopMoveState
     {
@@ -32,9 +39,13 @@ public class TopMove_Player1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //weightChooseScr = FindObjectOfType<UI_WeightChoose1>();
+        //topDicScr = FindObjectOfType<TopDictionary>();
+        moveSpeedControl = originMoveSpeedControl;
         maxMoveSpeed_Vertical= maxMoveSpeed;
         maxMoveSpeed_Horizontal= maxMoveSpeed;
         trans = gameObject.GetComponent<Transform>();
+        gameManagerScr = FindObjectOfType<GameManager>();
     }
     private void FixedUpdate()
     {
@@ -61,6 +72,8 @@ public class TopMove_Player1 : MonoBehaviour
         {
             currentMoveState = TopMoveState.move;
         }
+        maxMoveSpeedControl = gameManagerScr.weight1;
+        moveSpeedControl = originMoveSpeedControl-maxMoveSpeedControl;
     }
 
     void TopStop()
@@ -194,7 +207,7 @@ public class TopMove_Player1 : MonoBehaviour
         {
             if(Input.GetKeyDown(KeyCode.Space))
             {
-                 rotateScr.rotateSpeed += speedUpRate;
+                rotateScr.SpeedUp();
             }
         }
     }

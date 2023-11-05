@@ -30,13 +30,13 @@ public class CameraZoom : MonoBehaviour
         
     }
 
-    public void FindPlayer()
+    public void FindPlayer(int player)
     {
-        if(player1Scr== null)
+        if(player == 1)
         {
             player1Scr = FindObjectOfType<TopMove_Player1>();
         }
-        if (player2Scr == null)
+        if (player==2)
         {
             player2Scr = FindObjectOfType<TopMove_Player2>();
         }
