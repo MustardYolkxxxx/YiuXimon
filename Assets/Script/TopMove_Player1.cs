@@ -75,7 +75,10 @@ public class TopMove_Player1 : MonoBehaviour
         maxMoveSpeedControl = gameManagerScr.weight1;
         moveSpeedControl = originMoveSpeedControl-maxMoveSpeedControl;
     }
-
+    public void DestroyThis()
+    {
+        Destroy(gameObject);
+    }
     void TopStop()
     {
         if(rotateScr.rotateSpeed <0.3)

@@ -31,13 +31,17 @@ public class GameManager : MonoBehaviour
     public float weight1;
     public float weight2;
 
+    public float weightForce1;
+    public float weightForce2;
+
     public float bladeMaxSpeed1;
     public float bladeMaxSpeed2;
 
     public float blade1SpeedUpRate;
     public float blade2SpeedUpRate;
 
-    
+    public float bladeSpeedDownRate1;
+    public float bladeSpeedDownRate2;
     // Start is called before the first frame update
     void Start()
     {
@@ -87,6 +91,18 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void ChangeWeightForce(int player, int index)
+    {
+        if (player == 1)
+        {
+            weightForce1 = topDicScr.WeightDic[index].weightForce;
+        }
+        if (player == 2)
+        {
+            weightForce2 = topDicScr.WeightDic[index].weightForce;
+        }
+    }
+
     public void ChangeMaxSpeed(int player,int index)
     {
         if (player == 1)
@@ -101,6 +117,17 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void ChangeSpeedDownRate(int player, int index)
+    {
+        if (player == 1)
+        {
+            bladeSpeedDownRate1 = topDicScr.BladeDic[index].speedDownRate;
+        }
+        if (player == 2)
+        {
+            bladeSpeedDownRate2 = topDicScr.BladeDic[index].speedDownRate;
+        }
+    }
     public void ChangeSpeedUpRate(int player,int index)
     {
         if (player == 1)

@@ -22,13 +22,13 @@ public class DestroyPlayer : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player1"))
         {
-            Destroy(collision.gameObject);
+            collision.gameObject.GetComponentInParent<TopMove_Player1>().DestroyThis();
             StartCoroutine(CreatePlayer1IE());
         }
 
         if (collision.gameObject.CompareTag("Player2"))
         {
-            Destroy(collision.gameObject);
+            collision.gameObject.GetComponentInParent<TopMove_Player2>().DestroyThis();
             StartCoroutine(CreatePlayer2IE());
         }
     }

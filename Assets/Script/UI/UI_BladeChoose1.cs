@@ -90,6 +90,7 @@ public class UI_BladeChoose1 : MonoBehaviour
         {
             readyButtonAni.SetTrigger("press");
             uiManagerScr.currentUIState1 = UI_UIManager.UIState.chooseWeight;
+            gameManagerScr.ChangeSpeedDownRate(1, bladeIndex);
             gameManagerScr.ChangeSpeedUpRate(1,bladeIndex);
             gameManagerScr.ChangeMaxSpeed(1,bladeIndex);
             currentChooseState = ChooseState.finish;

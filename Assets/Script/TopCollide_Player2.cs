@@ -14,11 +14,16 @@ public class TopCollide_Player2 : MonoBehaviour
 
     public float targetRotateSpeed;
     public float controlForce;
+    public float maxControlForce;
+    public float originControlForce = 1;
 
     public float collideTime;
+
     public bool isCollide;
 
     public TopMove_Player2 moveScr;
+
+    public GameManager gameManagerScr;
     public enum CollideState2
     {
         none,
@@ -30,6 +35,7 @@ public class TopCollide_Player2 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gameManagerScr = FindObjectOfType<GameManager>();
         force = initialForce; ;
     }
 
@@ -40,7 +46,8 @@ public class TopCollide_Player2 : MonoBehaviour
         {
             StartCoroutine(CollideBack());
         }
-
+        maxControlForce = gameManagerScr.weight1;
+        controlForce = originControlForce + maxControlForce;
 
         CheckForce();
     }

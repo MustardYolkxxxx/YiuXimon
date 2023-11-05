@@ -9,7 +9,7 @@ public class BladeType
     public int id;
     public float maxSpeed;
     public float speedUpRate;
-
+    public float speedDownRate;
     public BladeType()
     {
         
@@ -31,12 +31,21 @@ public class BladeType
         this.bladeName = name;
         this.maxSpeed = speed;
     }
-    public BladeType(int id, string name, float speed, float speedUpRate)
+    public BladeType(int id, string name, float speed, float speedUpRate )
     {
         this.id = id;
         this.bladeName = name;
         this.maxSpeed = speed;
         this.speedUpRate = speedUpRate;
+    }
+
+    public BladeType(int id, string name, float speed, float speedUpRate ,float speedDownRate)
+    {
+        this.id = id;
+        this.bladeName = name;
+        this.maxSpeed = speed;
+        this.speedUpRate = speedUpRate;
+        this.speedDownRate = speedDownRate;
     }
     // Start is called before the first frame update
 }

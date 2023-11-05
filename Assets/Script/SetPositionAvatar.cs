@@ -15,6 +15,10 @@ public class SetPositionAvatar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        trans.position = targetTrans.position;
+        if(targetTrans!= null)
+        {
+            trans.position = targetTrans.position;
+        }
+        
     }
 }

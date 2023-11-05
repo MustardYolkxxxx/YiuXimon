@@ -93,6 +93,7 @@ public class UI_WeightChoose1 : MonoBehaviour
         {
             readyButtonAni.SetTrigger("press");
             uiManagerScr.currentUIState1 = UI_UIManager.UIState.readyPhase;
+            gameManagerScr.ChangeWeightForce(1, weightIndex);
             gameManagerScr.ChangeWeight(1,weightIndex);
             currentChooseState = ChooseState.finish;
         }
