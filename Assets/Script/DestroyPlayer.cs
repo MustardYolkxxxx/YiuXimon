@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class DestroyPlayer : MonoBehaviour
 {
-
     public GameManager manager;
+
+    public GameObject destroyEffect;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,13 +24,15 @@ public class DestroyPlayer : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player1"))
         {
-            Destroy(collision.gameObject);
+            Instantiate(destroyEffect,collision.transform.position,Quaternion.identity);
+            collision.gameObject.GetComponentInParent<TopMove_Player1>().DestroyThis();
             StartCoroutine(CreatePlayer1IE());
         }
 
         if (collision.gameObject.CompareTag("Player2"))
         {
-            Destroy(collision.gameObject);
+            Instantiate(destroyEffect, collision.transform.position, Quaternion.identity);
+            collision.gameObject.GetComponentInParent<TopMove_Player2>().DestroyThis();
             StartCoroutine(CreatePlayer2IE());
         }
     }

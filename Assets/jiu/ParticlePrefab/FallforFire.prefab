@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8369620270247535106}
   - component: {fileID: 2096638529749903666}
   - component: {fileID: 2751035752976273860}
+  - component: {fileID: 6028665163349509323}
   m_Layer: 0
   m_Name: FallforFire
   m_TagString: Untagged
@@ -4816,6 +4817,19 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &6028665163349509323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3036501029853641050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81e593f885527764288f8fb26f484ef0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: 1
 --- !u!1 &3442250662212814280
 GameObject:
   m_ObjectHideFlags: 0

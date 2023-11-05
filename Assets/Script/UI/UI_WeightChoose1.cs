@@ -19,6 +19,7 @@ public class UI_WeightChoose1 : MonoBehaviour
     {
         choosing,
         finish,
+        stop,
     }
 
     public ChooseState currentChooseState;
@@ -39,8 +40,15 @@ public class UI_WeightChoose1 : MonoBehaviour
         {
             PressCheck();
         }
-
-        mask.SetActive(currentChooseState== ChooseState.finish);
+        if (currentChooseState == ChooseState.stop)
+        {
+            
+        }
+        else
+        {
+            CheckSpace();
+        }
+        mask.SetActive(currentChooseState == ChooseState.finish || currentChooseState == ChooseState.stop);
 
         //for(int i =0;i < bladeObjects.Length; i++)
         //{
@@ -89,12 +97,27 @@ public class UI_WeightChoose1 : MonoBehaviour
             }
         }
 
+    }
+
+    public void CheckSpace()
+    {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            readyButtonAni.SetTrigger("press");
-            uiManagerScr.currentUIState1 = UI_UIManager.UIState.readyPhase;
-            gameManagerScr.ChangeWeight(1,weightIndex);
-            currentChooseState = ChooseState.finish;
+            if (currentChooseState == ChooseState.choosing)
+            {
+                uiManagerScr.currentUIState1 = UI_UIManager.UIState.readyPhase;
+                readyButtonAni.SetTrigger("press");
+                gameManagerScr.ChangeWeightForce(1, weightIndex);
+                gameManagerScr.ChangeWeight(1, weightIndex);
+                currentChooseState = ChooseState.finish;
+            }
+            else if (currentChooseState == ChooseState.finish)
+            {
+                uiManagerScr.currentUIState1 = UI_UIManager.UIState.none;
+                readyButtonAni.SetTrigger("press");
+
+                currentChooseState = ChooseState.choosing;
+            }
         }
     }
 }

@@ -8,6 +8,7 @@ public class WeightType
     public string weightName;
     public int id;
     public float weight;
+    public float weightForce;
     
     public WeightType()
     {
@@ -29,5 +30,13 @@ public class WeightType
         this.id = id;
         this.weightName = weightName;
         this.weight = weight;
+    }
+
+    public WeightType(int id, string weightName, float weight,float weightForce)
+    {
+        this.id = id;
+        this.weightName = weightName;
+        this.weight = weight;
+        this.weightForce = weightForce;
     }
 }

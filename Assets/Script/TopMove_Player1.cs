@@ -17,6 +17,7 @@ public class TopMove_Player1 : MonoBehaviour
     public float maxMoveSpeedControl;
     public float originMoveSpeedControl;
 
+    public GameObject pressEffect;
     //public TopDictionary topDicScr;
 
     //public UI_WeightChoose1 weightChooseScr;
@@ -75,7 +76,10 @@ public class TopMove_Player1 : MonoBehaviour
         maxMoveSpeedControl = gameManagerScr.weight1;
         moveSpeedControl = originMoveSpeedControl-maxMoveSpeedControl;
     }
-
+    public void DestroyThis()
+    {
+        Destroy(gameObject);
+    }
     void TopStop()
     {
         if(rotateScr.rotateSpeed <0.3)
@@ -207,6 +211,7 @@ public class TopMove_Player1 : MonoBehaviour
         {
             if(Input.GetKeyDown(KeyCode.Space))
             {
+                Instantiate(pressEffect, trans.position, Quaternion.identity);
                 rotateScr.SpeedUp();
             }
         }
